@@ -157,10 +157,9 @@ table.compare tr:last-child td { border-bottom: none; }
 .article-body h2 { color: var(--navy); margin: 30px 0 10px; font-size: 1.4rem; }
 .article-body h3 { color: var(--navy-2); margin: 22px 0 8px; font-size: 1.15rem; }
 .article-body p { margin-bottom: 14px; }
-.article-body ul, .article-body ol { margin: 
-...[truncated 4471 chars]
-/* ---------- Kartu blog, portofolio, tim ---------- */
-.meta { color: var(--muted); font-size: 0.88rem; margin-bottom: 10px; }
+.article-body ul, .article-body ol { margin: 0 0 14px 22px; }
+.article-body li { margin-bottom: 6px; }
+.article-body li { margin-bottom: 6px; }
 .blog-card h3 a { color: var(--navy); }
 .blog-card h3 a:hover { color: var(--accent); }
 .portfolio-card .tags { list-style: none; margin-top: 12px; }
