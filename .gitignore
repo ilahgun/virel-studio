@@ -1,0 +1,11 @@
+# File sistem & editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Log & file sementara
+*.log
+tmp/
