@@ -43,7 +43,7 @@ a:hover { text-decoration: underline; }
 .nav-inner { display: flex; align-items: center; gap: 18px; min-height: 62px; position: relative; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 800; font-size: 1.12rem; letter-spacing: -0.01em; padding: 8px 0; }
 .brand:hover { text-decoration: none; }
-.brand .mark { width: 34px; height: 34px; border-radius: 9px; flex: none; background: var(--accent-2); color: #06222f; display: grid; place-items: center; font-weight: 700; font-size: 1rem; }
+.brand .mark-img { width: 34px; height: 34px; border-radius: 9px; flex: none; display: block; }
 .brand small { display: block; font-weight: 600; font-size: 0.68rem; color: #a9bfd4; letter-spacing: 0.08em; text-transform: uppercase; }
 .nav-links { margin-left: auto; display: flex; gap: 2px; flex-wrap: wrap; align-items: center; }
 .nav-links a { color: #eef4fa; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 10px 12px; border-radius: 8px; min-height: 40px; display: inline-flex; align-items: center; }

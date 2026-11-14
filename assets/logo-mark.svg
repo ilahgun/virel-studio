@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Markah Virel Studio</title>
+  <desc id="desc">Huruf V navy geometris dengan potongan segitiga play cyan di dalam kotak rounded cyan.</desc>
+  <!-- Kotak squircle resmi -->
+  <rect x="8" y="8" width="224" height="224" rx="54" fill="#22D3EE"/>
+  <!-- V geometris simetris -->
+  <path fill="#0A1F44" d="M61 55h37l22 61 22-61h37l-49 130q-10 11-20 0L61 55Z"/>
+  <!-- Potongan play sebagai ruang negatif: isyarat game, tanpa mengganggu siluet V -->
+  <path fill="#22D3EE" d="M113 148l24 12-24 12z"/>
+</svg>
