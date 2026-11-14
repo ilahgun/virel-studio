@@ -17,9 +17,10 @@ site/
 ├── harga.html                                    # Semua paket & harga resmi
 ├── portofolio.html                               # Karya demo + slot klien pertama
 ├── blog.html                                     # Daftar artikel (terbaru di atas)
-├── artikel-biaya-website-umkm.html               # Artikel 1
-├── artikel-landing-page-vs-company-profile.html  # Artikel 2
-├── artikel-template.html                         # Template untuk artikel baru
+├── artikel/                                      # SEMUA artikel blog di folder ini
+│   ├── biaya-website-umkm.html                   # Artikel: biaya website UMKM
+│   ├── landing-page-vs-company-profile.html      # Artikel: landing page vs company profile
+│   └── template.html                             # Template untuk artikel baru
 ├── tentang.html                                  # Profil studio + tim
 ├── kontak.html                                   # Kontak + form -> WhatsApp
 ├── assets/
@@ -48,8 +49,8 @@ Cara yang sama berlaku di Netlify/Vercel: tanpa build command, publish directory
 
 Blog dirancang untuk artikel harian. Langkahnya:
 
-1. **Duplikat** file `artikel-template.html`, beri nama `artikel-[slug].html`
-   (contoh: `artikel-tips-memilih-jasa-website.html`).
+1. **Duplikat** file `artikel/template.html` di dalam folder `artikel/`, beri nama `[slug].html`
+   (contoh: `artikel/tips-memilih-jasa-website.html`, alamatnya menjadi `/artikel/tips-memilih-jasa-website`).
 2. **Isi semua bagian bertanda `[GANTI: ...]`** di dalam file tersebut:
    `<title>`, meta description, satu `<h1>`, tanggal terbit, dan isi artikel
    (target ±700–1000 kata, struktur h2/h3, ditutup CTA WhatsApp yang sudah tersedia di template).

@@ -28,7 +28,7 @@
     /* --- Penanda menu aktif dari nama file --- */
     var file = (location.pathname.split("/").pop() || "").toLowerCase();
     var page = file.replace(/\.html$/, "") || "index";
-    if (page.indexOf("artikel-") === 0) page = "blog";
+    if (page.indexOf("artikel-") === 0 || location.pathname.indexOf("/artikel/") === 0) page = "blog";
     var links = document.querySelectorAll(".nav-links a[data-page]");
     for (var i = 0; i < links.length; i++) {
       if (links[i].getAttribute("data-page") === page) {
@@ -70,8 +70,8 @@
   /* --- Fallback include: bila penanda include masih ada (worker tidak jalan,
          misalnya pratinjau file lokal), ambil partials lewat fetch. --- */
   var slots = [
-    { id: "include-header", url: "partials/header.html" },
-    { id: "include-footer", url: "partials/footer.html" }
+    { id: "include-header", url: "/partials/header.html" },
+    { id: "include-footer", url: "/partials/footer.html" }
   ];
   var pending = [];
   slots.forEach(function (s) {
