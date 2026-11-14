@@ -1,0 +1,9 @@
+{
+  // Konfigurasi Cloudflare Workers Static Assets untuk situs Virel Studio.
+  // File HTML/CSS/JS di root repo disajikan langsung sebagai situs statis.
+  "name": "virel-studio",
+  "compatibility_date": "2026-11-14",
+  "assets": {
+    "directory": "."
+  }
+}
