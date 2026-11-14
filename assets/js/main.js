@@ -26,7 +26,7 @@
     }
 
     /* --- Penanda menu aktif dari nama file --- */
-    var file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    var file = (location.pathname.split("/").pop() || "").toLowerCase();
     var page = file.replace(/\.html$/, "") || "index";
     if (page.indexOf("artikel-") === 0) page = "blog";
     var links = document.querySelectorAll(".nav-links a[data-page]");
