@@ -200,21 +200,15 @@ table.compare tr:last-child td { border-bottom: none; }
 .contact-form button { margin-top: 16px; align-self: flex-start; }
 .form-note { color: var(--muted); font-size: 0.88rem; margin-top: 10px; }
 
-/* ---------- Footer ---------- */
-.site-footer { background: var(--navy); color: #d7e3f2; margin-top: 64px; }
-.footer-grid {
-  display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px;
-  padding-top: 44px; padding-bottom: 34px;
-}
-.site-footer .fbrand { font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
-.site-footer .fbrand span { color: var(--accent-2); }
-.site-footer p { color: #a9bed6; font-size: 0.95rem; max-width: 42ch; }
-.site-footer h4 { color: #fff; font-size: 1rem; margin-bottom: 12px; }
-.site-footer ul { list-style: none; }
-.site-footer ul li { margin-bottom: 8px; font-size: 0.95rem; }
-.site-footer a { color: #d7e3f2; }
-.site-footer a:hover { color: var(--accent-2); }
-.footer-bottom { background: var(--navy-2); padding: 16px 0; font-size: 0.88rem; color: #a9bed6; }
+/* ---------- Footer (menyamai desain preview awal) ---------- */
+.site-footer { background: var(--navy); color: #a9bfd4; padding: 44px 0 34px; margin-top: 64px; }
+.site-footer .cols { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
+.site-footer h3 { color: #fff; font-size: 1rem; margin: 0 0 10px; }
+.site-footer p { color: #a9bfd4; font-size: 0.95rem; }
+.site-footer a { color: #a9bfd4; text-decoration: none; display: block; padding: 4px 0; min-height: 32px; }
+.site-footer a:hover { color: #fff; text-decoration: none; }
+.site-footer .fine { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 30px; padding-top: 18px; font-size: 0.87rem; display: flex; gap: 14px; flex-wrap: wrap; justify-content: space-between; }
+.site-footer .soon { font-size: 0.78rem; font-weight: 700; background: rgba(245, 158, 11, 0.18); color: #fbbf24; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; white-space: nowrap; }
 
 /* ---------- Tombol WhatsApp melayang ---------- */
 .wa-float {
@@ -228,6 +222,6 @@ table.compare tr:last-child td { border-bottom: none; }
 .wa-float svg { width: 29px; height: 29px; fill: #fff; }
 
 @media (max-width: 720px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+  .site-footer .cols { flex-direction: column; gap: 26px; }
   .wa-float { right: 16px; bottom: 16px; }
 }
