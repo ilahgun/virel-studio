@@ -72,3 +72,18 @@ Blog dirancang untuk artikel harian. Langkahnya:
 - Form di `kontak.html` **tidak mengirim data ke server**; isi form disusun JavaScript menjadi teks
   lalu dibuka di WhatsApp resmi (jujur dijelaskan di bawah form).
 - Kepemilikan domain & akun hosting **selalu atas nama pemilik usaha**, bukan atas nama pembuat website.
+
+## Header & Footer Bersama (partials)
+
+Header dan footer TIDAK ditulis di tiap halaman. Setiap halaman hanya memuat
+penanda `<div id="include-header"></div>` dan `<div id="include-footer"></div>`;
+`worker.js` (Cloudflare Worker) menggantinya saat halaman disajikan dengan isi:
+
+- `partials/header.html` — bilah navigasi (logo, menu, tombol Konsultasi Gratis)
+- `partials/footer.html` — footer 4 kolom + tombol WhatsApp melayang
+
+Untuk mengubah menu, footer, atau tombol WA di SEMUA halaman sekaligus,
+cukup edit file di `partials/` lalu push. Menu aktif per halaman ditandai
+otomatis oleh `assets/js/main.js` (atribut `data-page`). Bila situs dibuka
+di luar Cloudflare (mis. pratinjau file lokal), `main.js` memuat partials
+lewat fetch sebagai cadangan.

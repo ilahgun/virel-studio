@@ -3,3 +3,4 @@ wrangler.jsonc
 .gitignore
 README.md
 artikel-template.html
+worker.js
