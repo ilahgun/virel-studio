@@ -30,12 +30,8 @@ export default function Footer() {
             </div>
             <div>
               <h3>Brand</h3>
-              <p style={{ margin: 0 }}>
-                virelstudio.id <span className="soon">segera hadir</span>
-              </p>
-              <p style={{ margin: '6px 0 0' }}>
-                Instagram &amp; TikTok: @virelstudio.id <span className="soon">segera hadir</span>
-              </p>
+              <p style={{ margin: 0 }}>virelstudio.id</p>
+              <p style={{ margin: '6px 0 0' }}>Instagram &amp; TikTok: @virelstudio.id</p>
             </div>
           </div>
           <div className="fine">
