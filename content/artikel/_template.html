@@ -1,0 +1,40 @@
+<!-- ============================================================
+     TEMPLATE ISI ARTIKEL (fragmen HTML) — Virel Studio (Next.js)
+     Cara pakai:
+     1. Simpan salinan file ini sebagai content/artikel/<slug>.html,
+        lalu ganti semua bagian bertanda [GANTI: ...] dengan isi artikel.
+        Fragmen ini HANYA isi badan artikel: kepala artikel (tautan
+        kembali, <h1>, baris tanggal) dirender otomatis dari metadata.
+     2. Tambahkan entri metadata artikel di content/artikel/index.json
+        (judul, slug, tanggal, tanggalISO, kategori, kataKunci,
+        metaDescription 140–160 karakter, ringkasan untuk kartu blog).
+     3. Judul TIDAK ditulis di sini — <h1> memakai field "judul" di
+        index.json. Tautan internal: /layanan, /harga, /portofolio,
+        dan "Baca juga:" ke artikel lain memakai /artikel/<slug>.
+     ============================================================ -->
+
+      <p>[GANTI: paragraf pembuka — sampaikan masalah/manfaat utama artikel dalam 2–4 kalimat, memuat kata kunci utama.]</p>
+
+      <h2>[GANTI: Subjudul Bagian 1]</h2>
+      <p>[GANTI: isi bagian 1.]</p>
+
+      <h2>[GANTI: Subjudul Bagian 2]</h2>
+      <p>[GANTI: isi bagian 2.]</p>
+      <!-- Contoh daftar bila diperlukan:
+      <ul>
+        <li>[GANTI: poin 1]</li>
+        <li>[GANTI: poin 2]</li>
+      </ul>
+      -->
+
+      <h2>Baca juga:</h2>
+      <ul>
+        <li><a href="/artikel/[GANTI: slug-artikel-lain]">[GANTI: Judul Artikel Lain]</a></li>
+      </ul>
+
+      <h2>Kesimpulan</h2>
+      <p>[GANTI: ringkasan penutup + ajakan konsultasi.]</p>
+      <div class="btn-row" style="margin-top:18px;">
+        <a class="btn btn-wa" href="https://wa.me/6285169944574?text=Halo%20Virel%20Studio%2C%20saya%20mau%20konsultasi%20tentang%20pembuatan%20website%2Faplikasi%2Fgame.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Konsultasi Gratis via WhatsApp</a>
+        <a class="btn btn-outline-dark" href="/harga">Lihat Paket &amp; Harga</a>
+      </div>

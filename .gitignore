@@ -9,3 +9,8 @@ Thumbs.db
 # Log & file sementara
 *.log
 tmp/
+
+# Next.js
+node_modules/
+.next/
+out/

@@ -1,0 +1,214 @@
+/* ============================================================
+   Virel Studio — stylesheet bersama
+   Palet: navy gelap (header/footer), dasar terang, aksen biru
+   elektrik/cyan, hijau WhatsApp untuk tombol WA.
+   ============================================================ */
+
+:root {
+  --navy: #0a1f44;
+  --navy-2: #0e2a5c;
+  --ink: #1c2733;
+  --muted: #5b6b7c;
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --line: #dde6ee;
+  --accent: #0284c7;
+  --accent-2: #22d3ee;
+  --wa: #25d366;
+  --wa-dark: #128c7e;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(10, 31, 68, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+}
+
+img { max-width: 100%; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Header / navigasi (desain preview awal) ---------- */
+.site-nav { position: sticky; top: 0; z-index: 50; background: var(--navy); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); }
+.nav-inner { display: flex; align-items: center; gap: 18px; min-height: 62px; position: relative; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 800; font-size: 1.12rem; letter-spacing: -0.01em; padding: 8px 0; }
+.brand:hover { text-decoration: none; }
+.brand .mark-img { width: 34px; height: 34px; border-radius: 9px; flex: none; display: block; }
+.brand small { display: block; font-weight: 600; font-size: 0.68rem; color: #a9bfd4; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav-links { margin-left: auto; display: flex; gap: 2px; flex-wrap: wrap; align-items: center; }
+.nav-links a { color: #eef4fa; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 10px 12px; border-radius: 8px; min-height: 40px; display: inline-flex; align-items: center; }
+.nav-links a:hover { background: rgba(255, 255, 255, 0.08); text-decoration: none; }
+.nav-links a.active { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.nav-links a.nav-cta { margin-left: 10px; background: #f59e0b; color: #231500; }
+.nav-links a.nav-cta:hover { background: #fbbf24; }
+.nav-toggle { display: none; margin-left: auto; background: none; border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; border-radius: 8px; padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; min-height: 40px; }
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .nav-links { display: none; position: absolute; top: calc(100% + 8px); right: 0; left: 0; flex-direction: column; align-items: stretch; background: var(--navy-2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 8px; box-shadow: var(--shadow); z-index: 55; }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px; }
+  .nav-links a.nav-cta { margin: 6px 0 0; justify-content: center; }
+}
+
+/* ---------- Hero & section ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 55%, #0b4a73 100%);
+  color: #fff; padding: 72px 0 64px;
+}
+.hero h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 14px; }
+.hero h1 .hl { color: var(--accent-2); }
+.hero p.lead { font-size: 1.12rem; color: #d7e6f5; max-width: 720px; margin-bottom: 26px; }
+
+.page-head {
+  background: linear-gradient(135deg, var(--navy), var(--navy-2));
+  color: #fff; padding: 48px 0 40px; margin-bottom: 40px;
+}
+.page-head h1 { font-size: 2rem; margin-bottom: 8px; }
+.page-head p { color: #d7e6f5; max-width: 760px; }
+
+section.block { padding: 44px 0; }
+section.block.alt { background: #eef4f9; }
+h2.section-title { font-size: 1.65rem; margin-bottom: 8px; color: var(--navy); }
+p.section-sub { color: var(--muted); max-width: 760px; margin-bottom: 28px; }
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 10px;
+  font-weight: 700; font-size: 0.98rem; border: 2px solid transparent;
+  cursor: pointer; text-align: center;
+}
+.btn:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-wa { background: var(--wa); color: #06351c; }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-outline { border-color: rgba(255,255,255,0.7); color: #fff; background: transparent; }
+.btn-outline-dark { border-color: var(--accent); color: var(--accent); background: transparent; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Kartu ---------- */
+.grid { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card h3 { color: var(--navy); font-size: 1.15rem; }
+.card p { color: var(--muted); font-size: 0.96rem; }
+.card .btn { margin-top: auto; }
+
+.price-card .price { font-size: 1.55rem; font-weight: 800; color: var(--accent); }
+.price-card .per { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+.price-card ul { list-style: none; margin: 6px 0 14px; }
+.price-card ul li { padding: 5px 0 5px 22px; position: relative; font-size: 0.95rem; color: var(--ink); border-bottom: 1px dashed var(--line); }
+.price-card ul li:last-child { border-bottom: none; }
+.price-card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--wa-dark); font-weight: 800; }
+.badge {
+  display: inline-block; background: var(--accent-2); color: #05303f;
+  font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: 0.4px; align-self: flex-start;
+}
+.badge-promo { background: #fde047; color: #5c4300; }
+
+.promo-band {
+  background: linear-gradient(120deg, #fef9c3, #fef08a);
+  border: 1px solid #facc15; border-radius: var(--radius);
+  padding: 26px; color: #57450a;
+}
+.promo-band h3 { color: #713f12; margin-bottom: 6px; }
+
+/* ---------- Langkah kerja ---------- */
+.steps { counter-reset: step; display: grid; gap: 14px; }
+.step {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px 18px 70px; position: relative; box-shadow: var(--shadow);
+}
+.step::before {
+  counter-increment: step; content: counter(step);
+  position: absolute; left: 18px; top: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.step h3 { color: var(--navy); font-size: 1.05rem; }
+.step p { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Tabel ---------- */
+.table-wrap { overflow-x: auto; margin: 18px 0; }
+table.compare { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+table.compare th, table.compare td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.95rem; vertical-align: top; }
+table.compare th { background: var(--navy); color: #fff; }
+table.compare tr:last-child td { border-bottom: none; }
+
+/* ---------- Artikel ---------- */
+.article-body { max-width: 780px; }
+.article-body h2 { color: var(--navy); margin: 30px 0 10px; font-size: 1.4rem; }
+.article-body h3 { color: var(--navy-2); margin: 22px 0 8px; font-size: 1.15rem; }
+.article-body p { margin-bottom: 14px; }
+.article-body ul, .article-body ol { margin: 0 0 14px 22px; }
+.article-body li { margin-bottom: 6px; }
+.article-body li { margin-bottom: 6px; }
+.blog-card h3 a { color: var(--navy); }
+.blog-card h3 a:hover { color: var(--accent); }
+.portfolio-card .tags { list-style: none; margin-top: 12px; }
+.portfolio-card .tags li { position: relative; padding-left: 20px; margin-bottom: 7px; color: var(--muted); font-size: 0.94rem; }
+.portfolio-card .tags li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+.team-card { text-align: center; }
+.team-card .avatar {
+  width: 58px; height: 58px; margin: 0 auto 12px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff; font-size: 1.45rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.team-card .role { color: var(--accent); font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+
+/* ---------- Form kontak ---------- */
+.contact-form { display: flex; flex-direction: column; gap: 7px; }
+.contact-form label { font-weight: 600; color: var(--navy); margin-top: 10px; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px;
+  font: inherit; background: #fff; color: var(--ink);
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  outline: 2px solid var(--accent-2); border-color: var(--accent);
+}
+.contact-form button { margin-top: 16px; align-self: flex-start; }
+.form-note { color: var(--muted); font-size: 0.88rem; margin-top: 10px; }
+
+/* ---------- Footer (menyamai desain preview awal) ---------- */
+.site-footer { background: var(--navy); color: #a9bfd4; padding: 44px 0 34px; margin-top: 64px; }
+.site-footer .cols { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
+.site-footer h3 { color: #fff; font-size: 1rem; margin: 0 0 10px; }
+.site-footer p { color: #a9bfd4; font-size: 0.95rem; }
+.site-footer a { color: #a9bfd4; text-decoration: none; display: block; padding: 4px 0; min-height: 32px; }
+.site-footer a:hover { color: #fff; text-decoration: none; }
+.site-footer .fine { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 30px; padding-top: 18px; font-size: 0.87rem; display: flex; gap: 14px; flex-wrap: wrap; justify-content: space-between; }
+.site-footer .soon { font-size: 0.78rem; font-weight: 700; background: rgba(245, 158, 11, 0.18); color: #fbbf24; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; white-space: nowrap; }
+
+/* ---------- Tombol WhatsApp melayang ---------- */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--wa); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(18, 140, 126, 0.45);
+}
+.wa-float:hover { background: var(--wa-dark); text-decoration: none; }
+.wa-float svg { width: 29px; height: 29px; fill: #fff; }
+
+@media (max-width: 720px) {
+  .site-footer .cols { flex-direction: column; gap: 26px; }
+  .wa-float { right: 16px; bottom: 16px; }
+}

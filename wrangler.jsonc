@@ -1,13 +1,13 @@
 {
-  // Konfigurasi Cloudflare untuk situs Virel Studio.
-  // worker.js merender include header/footer dari partials/ ke setiap halaman;
-  // file statis lain disajikan langsung dari root repo.
+  // Konfigurasi Cloudflare untuk situs Virel Studio (Next.js, static export).
+  // Hasil `npm run build` berada di folder out/ dan disajikan sebagai
+  // aset statis murni — tidak ada worker yang merender partial lagi
+  // (header/footer kini komponen React di app/layout.js).
+  // CATATAN: di dashboard Cloudflare, Build command harus diisi
+  // `npm run build` (sebelumnya kosong) saat branch nextjs digabung ke main.
   "name": "virel-studio",
-  "main": "worker.js",
   "compatibility_date": "2026-11-14",
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS",
-    "run_worker_first": true
+    "directory": "./out"
   }
 }

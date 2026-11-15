@@ -1,90 +1,87 @@
-# Website Virel Studio
+# Website Virel Studio (Next.js)
 
-Website statis multi-halaman untuk **Virel Studio** — jasa pembuatan website, aplikasi, dan game.
-Setiap menu navigasi membuka **halaman berbeda** (bukan satu halaman panjang ber-anchor).
-Murni HTML/CSS/JS tanpa framework dan tanpa build tool, agar mudah dirawat dan langsung jalan di hosting statis gratis.
+Website **Virel Studio** — jasa pembuatan website, aplikasi, dan game.
+Sejak 15 November 2026 situs ini adalah proyek **Next.js (App Router, JavaScript)**
+dengan **static export**: hasil build berupa HTML statis di folder `out/`,
+disajikan oleh Cloudflare Workers Static Assets. Tampilan identik dengan
+versi HTML murni sebelumnya (file lama tersimpan di folder `legacy-html/`).
 
-- Domain rencana: **virelstudio.id**
+- Domain rencana: **virelstudio.id** (sementara: https://virel-studio.gugungitaris.workers.dev)
 - WhatsApp bisnis: **+62 851-6994-4574** (`https://wa.me/6285169944574`)
 - Bahasa: Bahasa Indonesia
 
-## Struktur Folder
+## Menjalankan & Build
+
+```bash
+npm install
+npm run dev     # pratinjau lokal
+npm run build   # static export ke folder out/
+```
+
+## Struktur
 
 ```
 site/
-├── index.html                                    # Beranda
-├── layanan.html                                  # Layanan + alur kerja
-├── harga.html                                    # Semua paket & harga resmi
-├── portofolio.html                               # Karya demo + slot klien pertama
-├── blog.html                                     # Daftar artikel (terbaru di atas)
-├── artikel/                                      # SEMUA artikel blog di folder ini
-│   ├── biaya-website-umkm.html                   # Artikel: biaya website UMKM
-│   ├── landing-page-vs-company-profile.html      # Artikel: landing page vs company profile
-│   └── template.html                             # Template untuk artikel baru
-├── tentang.html                                  # Profil studio + tim
-├── kontak.html                                   # Kontak + form -> WhatsApp
-├── assets/
-│   ├── css/style.css                             # Satu stylesheet bersama
-│   └── js/main.js                                # Menu mobile, form kontak, tahun otomatis
-├── README.md
-└── .gitignore
+├── app/                     # Route App Router
+│   ├── layout.js            # Header + Footer (komponen) + metadata ikon
+│   ├── globals.css          # Stylesheet bersama (sama seperti dulu)
+│   ├── page.js              # / (Beranda)
+│   ├── layanan|harga|portofolio|blog|tentang|kontak/page.js
+│   ├── artikel/[slug]/page.js   # Halaman artikel dinamis (statis)
+│   ├── _components/         # Header, Footer, StaticMain, SiteScripts
+│   └── _lib/                # Pembaca konten + data artikel
+├── content/
+│   ├── pages/               # Fragmen HTML isi <main> halaman utama
+│   └── artikel/
+│       ├── index.json       # Metadata semua artikel (judul, slug, tanggal,
+│       │                    #  kategori, kataKunci, metaDescription, ringkasan)
+│       └── <slug>.html      # Fragmen HTML isi artikel per slug
+├── public/                  # favicon.ico, assets/ (logo), _redirects
+├── legacy-html/             # Arsip situs HTML murni sebelum migrasi
+└── wrangler.jsonc           # Deploy: aset statis dari folder out/
 ```
 
-## Cara Deploy ke Cloudflare Pages (Gratis)
-
-Situs ini **tidak butuh build command sama sekali**.
-
-1. Push folder ini ke repository GitHub (repo milik pemilik Virel Studio).
-2. Masuk ke [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pilih repository ini.
-3. Pada pengaturan build, isi:
-   - **Framework preset:** `None`
-   - **Build command:** *(kosongkan)*
-   - **Build output directory:** `/` (root — karena seluruh file HTML berada di root folder ini)
-4. Klik **Save and Deploy**. Situs tayang di subdomain `*.pages.dev`.
-5. Setelah domain `virelstudio.id` dibeli (atas nama pemilik), tambahkan sebagai **Custom domain** di proyek Pages tersebut dan ikuti arahan DNS-nya.
-
-Cara yang sama berlaku di Netlify/Vercel: tanpa build command, publish directory = root folder ini.
+Isi halaman utama tersimpan sebagai fragmen HTML di `content/pages/` dan
+dirender apa adanya — mengedit teks halaman cukup edit fragmen tersebut.
+Header/footer kini komponen React (`app/_components/`), dirawat dari satu tempat.
 
 ## Cara Menambah Artikel Baru
 
-Blog dirancang untuk artikel harian. Langkahnya:
+1. Tulis isi artikel sebagai fragmen HTML: salin `content/artikel/_template.html`
+   menjadi `content/artikel/<slug>.html`, isi semua penanda `[GANTI: ...]`.
+   Fragmen hanya berisi badan artikel (paragraf, h2, daftar, CTA) — kepala
+   artikel (tautan kembali, `<h1>`, baris tanggal) dirender otomatis.
+2. Tambahkan satu entri di `content/artikel/index.json`:
+   `slug`, `judul`, `tanggal` (mis. "16 November 2026"), `tanggalISO`
+   ("2026-11-16"), `kategori`, `kataKunci`, `metaDescription` (140–160 karakter),
+   dan `ringkasan` (1–2 kalimat untuk kartu blog).
+3. Kartu di halaman `/blog` dan halaman artikelnya dibuat otomatis saat build —
+   tidak perlu lagi mengedit blog.html secara manual.
+4. Commit & push ke `main` — Cloudflare membangun ulang dan menerbitkan situs.
 
-1. **Duplikat** file `artikel/template.html` di dalam folder `artikel/`, beri nama `[slug].html`
-   (contoh: `artikel/tips-memilih-jasa-website.html`, alamatnya menjadi `/artikel/tips-memilih-jasa-website`).
-2. **Isi semua bagian bertanda `[GANTI: ...]`** di dalam file tersebut:
-   `<title>`, meta description, satu `<h1>`, tanggal terbit, dan isi artikel
-   (target ±700–1000 kata, struktur h2/h3, ditutup CTA WhatsApp yang sudah tersedia di template).
-3. **Tambahkan kartunya di `blog.html`**: salin blok `<article class="card blog-card">…</article>`
-   yang paling atas, ganti tanggal/kategori/judul/ringkasannya, dan arahkan tautannya ke file artikel baru.
-   Kartu artikel terbaru selalu diletakkan **paling atas**.
-4. Commit & push — Cloudflare Pages menerbitkan ulang situs secara otomatis.
+Standar SEO tetap: satu kata kunci utama per artikel, tepat satu `<h1>`,
+meta description 140–160 karakter, canonical & Open Graph otomatis dari
+metadata (basis URL workers.dev; ganti `BASE_URL` di `app/_lib/content.js`
+setelah domain virelstudio.id aktif).
 
 ## Cara Update Harga
 
-1. Edit **`harga.html`** — ini satu-satunya sumber harga resmi di situs.
-2. Bila harga yang berubah juga tampil ringkas di **`index.html`** (bagian "Paket Paling Populer")
-   dan di dalam artikel, sesuaikan juga angka di sana agar konsisten.
-3. Jangan lupa memperbarui teks tombol WhatsApp per paket (`?text=` pada tautan `wa.me`)
-   bila nama paket atau harganya berubah.
+1. Edit fragmen **`content/pages/harga.html`** — sumber harga resmi.
+2. Sesuaikan juga cuplikan harga di **`content/pages/index.html`** dan artikel terkait.
+3. Perbarui teks tombol WhatsApp per paket (`?text=` pada tautan `wa.me`) bila perlu.
+
+## Deploy (Cloudflare)
+
+- Push ke `main` = deploy otomatis (Workers Static Assets dari folder `out/`).
+- Pengaturan build di dashboard Cloudflare: **Build command `npm run build`**,
+  deploy `npx wrangler deploy` (wrangler.jsonc menunjuk `assets.directory: ./out`).
+- Redirect URL artikel lama (`/artikel-biaya-website-umkm` →
+  `/artikel/biaya-website-umkm`, dst.) dipertahankan lewat `public/_redirects`
+  yang ikut terbit ke `out/_redirects`.
 
 ## Catatan Penting
 
-- Semua tombol konsultasi tertaut ke WhatsApp bisnis **+62 851-6994-4574** dengan teks pembuka otomatis.
-- Form di `kontak.html` **tidak mengirim data ke server**; isi form disusun JavaScript menjadi teks
-  lalu dibuka di WhatsApp resmi (jujur dijelaskan di bawah form).
-- Kepemilikan domain & akun hosting **selalu atas nama pemilik usaha**, bukan atas nama pembuat website.
-
-## Header & Footer Bersama (partials)
-
-Header dan footer TIDAK ditulis di tiap halaman. Setiap halaman hanya memuat
-penanda `<div id="include-header"></div>` dan `<div id="include-footer"></div>`;
-`worker.js` (Cloudflare Worker) menggantinya saat halaman disajikan dengan isi:
-
-- `partials/header.html` — bilah navigasi (logo, menu, tombol Konsultasi Gratis)
-- `partials/footer.html` — footer 4 kolom + tombol WhatsApp melayang
-
-Untuk mengubah menu, footer, atau tombol WA di SEMUA halaman sekaligus,
-cukup edit file di `partials/` lalu push. Menu aktif per halaman ditandai
-otomatis oleh `assets/js/main.js` (atribut `data-page`). Bila situs dibuka
-di luar Cloudflare (mis. pratinjau file lokal), `main.js` memuat partials
-lewat fetch sebagai cadangan.
+- Semua tombol konsultasi tertaut ke WhatsApp bisnis **+62 851-6994-4574**.
+- Form di halaman Kontak **tidak mengirim data ke server**; isi form disusun
+  JavaScript (`app/_components/SiteScripts.js`) menjadi teks lalu dibuka di WhatsApp.
+- Kepemilikan domain & akun hosting **selalu atas nama pemilik usaha**.
