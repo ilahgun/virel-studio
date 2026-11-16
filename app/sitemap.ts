@@ -1,21 +1,25 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://virel-studio.gugungitaris.workers.dev";
+
   return [
     {
-      url: "https://virel-studio.gugungitaris.workers.dev",
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: "https://virel-studio.gugungitaris.workers.dev/layanan",
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "daily",
       priority: 0.8,
     },
     {
-      url: "https://virel-studio.gugungitaris.workers.dev/blog",
+      url: `${baseUrl}/layanan`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
