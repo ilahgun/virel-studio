@@ -2,7 +2,7 @@
 // isi artikel sebagai fragmen HTML di content/artikel/<slug>.html.
 import indexData from '../../content/artikel/index.json';
 
-export const semuaArtikel = [...indexData].sort((a, b) =>
+export const semuaArtikel = indexData.toSorted((a, b) =>
   a.tanggalISO < b.tanggalISO ? 1 : a.tanggalISO > b.tanggalISO ? -1 : 0
 );
 
