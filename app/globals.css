@@ -168,6 +168,10 @@ table.compare tr:last-child td { border-bottom: none; }
 .portfolio-card .tags { list-style: none; margin-top: 12px; }
 .portfolio-card .tags li { position: relative; padding-left: 20px; margin-bottom: 7px; color: var(--muted); font-size: 0.94rem; }
 .portfolio-card .tags li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+.portfolio-card .portfolio-img {
+  display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border: 1px solid var(--line); border-radius: 10px; margin-bottom: 6px;
+}
 .team-card { text-align: center; }
 .team-card .avatar {
   width: 58px; height: 58px; margin: 0 auto 12px; border-radius: 50%;
