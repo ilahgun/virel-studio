@@ -178,6 +178,20 @@ table.compare tr:last-child td { border-bottom: none; }
 .article-hero { display: block; width: 100%; height: auto; border-radius: 12px; margin-bottom: 24px; }
 .blog-card h3 a { color: var(--navy); }
 .blog-card h3 a:hover { color: var(--accent); }
+
+/* Layout dua kolom halaman artikel: isi di kiri, sidebar di kanan */
+.article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; align-items: start; }
+.article-sidebar { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 20px; }
+.side-block { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.side-title { color: var(--navy); font-size: 1.05rem; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--accent-2); }
+.side-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.side-item a { display: flex; gap: 12px; align-items: flex-start; }
+.side-item a:hover { text-decoration: none; }
+.side-thumb { width: 84px; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 8px; flex: none; }
+.side-item-title { display: block; color: var(--navy); font-weight: 700; font-size: 0.92rem; line-height: 1.4; }
+.side-item a:hover .side-item-title { color: var(--accent); }
+.side-item-date { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 3px; }
+.side-cta .btn { align-self: flex-start; }
 .portfolio-card .tags { list-style: none; margin-top: 12px; }
 .portfolio-card .tags li { position: relative; padding-left: 20px; margin-bottom: 7px; color: var(--muted); font-size: 0.94rem; }
 .portfolio-card .tags li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
@@ -233,6 +247,10 @@ table.compare tr:last-child td { border-bottom: none; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid > * { min-width: 0; }
+
+  /* Halaman artikel jadi satu kolom: sidebar menumpuk di bawah isi */
+  .article-layout { grid-template-columns: 1fr; }
+  .article-sidebar { position: static; }
 }
 
 @media (max-width: 720px) {
