@@ -9,7 +9,7 @@ export default function Footer() {
             <div style={{ maxWidth: '300px' }}>
               <h3>Virel Studio</h3>
               <p style={{ margin: 0 }}>
-                Jasa pembuatan website, aplikasi, dan game. Web, Aplikasi &amp; Game — Dirakit Cepat, Hasil Serius.
+                Jasa pembuatan website, aplikasi, dan game. Web, Aplikasi &amp; Game. Dirakit Cepat, Hasil Serius.
               </p>
             </div>
             <div>

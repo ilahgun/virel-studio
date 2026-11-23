@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { halaman } = await params;
   return pageMetadata({
-    title: `Blog — Halaman ${halaman} | Virel Studio`,
+    title: `Blog: Halaman ${halaman} | Virel Studio`,
     description: `Blog Virel Studio halaman ${halaman}: artikel jujur seputar jasa pembuatan website, aplikasi, dan game untuk UMKM. Diperbarui setiap hari.`,
     path: `/blog/${halaman}`,
   });

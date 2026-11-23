@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const a = artikelBySlug(slug);
   if (!a) return {};
-  const title = `${a.judul} — Virel Studio`;
+  const title = `${a.judul} | Virel Studio`;
   const url = `${BASE_URL}/artikel/${a.slug}`;
   return {
     title,

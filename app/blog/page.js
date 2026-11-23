@@ -3,9 +3,9 @@ import { pageMetadata } from '../_lib/content';
 import { renderBlog } from '../_lib/blog';
 
 export const metadata = pageMetadata({
-  title: 'Blog — Tips Biaya & Cara Memilih Jasa Pembuatan Website | Virel Studio',
+  title: 'Blog: Tips Biaya & Cara Memilih Jasa Pembuatan Website | Virel Studio',
   description:
-    'Blog Virel Studio: artikel jujur seputar jasa pembuatan website, aplikasi, dan game — rincian biaya website UMKM, perbandingan landing page vs company profile, dan tips memilih jasa yang aman. Diperbarui setiap hari.',
+    'Blog Virel Studio: artikel jujur seputar jasa pembuatan website, aplikasi, dan game: rincian biaya website UMKM, perbandingan landing page vs company profile, dan tips memilih jasa yang aman. Diperbarui setiap hari.',
   path: '/blog',
 });
 
