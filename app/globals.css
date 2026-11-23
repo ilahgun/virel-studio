@@ -141,6 +141,43 @@ p.section-sub { color: var(--muted); max-width: 760px; margin-bottom: 28px; }
 .card p { color: var(--muted); font-size: 0.96rem; }
 .card .btn { margin-top: auto; }
 
+/* ---------- FAQ accordion (details/summary, tanpa JS) ---------- */
+.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 820px; margin: 0 auto; }
+.faq-item {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.faq-item[open] { border-color: var(--accent-2); }
+.faq-item summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 22px; -webkit-tap-highlight-color: transparent;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::marker { content: none; }
+.faq-item summary h3 { margin: 0; color: var(--navy); font-size: 1.05rem; line-height: 1.4; transition: color 0.2s ease; }
+.faq-item summary:hover h3 { color: var(--accent); }
+.faq-item summary::after {
+  content: ""; flex: 0 0 auto; width: 10px; height: 10px; margin-right: 4px;
+  border-right: 2.5px solid var(--accent); border-bottom: 2.5px solid var(--accent);
+  transform: rotate(45deg); transition: transform 0.25s ease;
+}
+.faq-item[open] summary::after { transform: rotate(225deg); }
+.faq-item summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
+.faq-answer { padding: 0 22px 20px; }
+.faq-answer p { margin: 0; color: var(--muted); font-size: 0.96rem; line-height: 1.6; }
+.faq-item[open] .faq-answer { animation: faq-in 0.28s ease; }
+@keyframes faq-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: none; }
+}
+@media (max-width: 640px) {
+  .faq-item summary { padding: 16px 18px; }
+  .faq-item summary h3 { font-size: 1rem; }
+  .faq-answer { padding: 0 18px 18px; }
+}
+
 .price-card .price { font-size: 1.55rem; font-weight: 800; color: var(--accent); }
 .price-card .per { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
 .price-card ul { list-style: none; margin: 6px 0 14px; }
