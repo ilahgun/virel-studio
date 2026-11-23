@@ -65,21 +65,29 @@ a:hover { text-decoration: underline; }
 
 /* ---------- Hero & section ---------- */
 .hero {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 55%, #0b4a73 100%);
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(100deg, rgba(10, 31, 68, 0.93) 0%, rgba(10, 31, 68, 0.84) 48%, rgba(10, 31, 68, 0.6) 100%),
+    url("/hero-bg-virel-studio.jpg");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
   color: #fff; padding: 72px 0 64px;
 }
 .hero h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 14px; }
 .hero h1 .hl { color: var(--accent-2); }
 .hero p.lead { font-size: 1.12rem; color: #d7e6f5; max-width: 720px; margin-bottom: 26px; }
 
-/* Hero beranda: teks + gambar dua kolom (menumpuk di layar kecil) */
-.hero-layout { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center; }
-.hero-visual img {
-  display: block; width: 100%; height: auto; aspect-ratio: 8 / 5;
-  border-radius: var(--radius); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
-}
+/* Hero beranda: background gambar full-bleed, teks satu kolom di sisi kiri.
+   Overlay navy pekat dijamin agar tulisan selalu terbaca jelas. */
+.hero-text { max-width: 660px; }
 @media (max-width: 900px) {
-  .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+  .hero {
+    background-image:
+      linear-gradient(rgba(10, 31, 68, 0.94), rgba(10, 31, 68, 0.94)),
+      url("/hero-bg-virel-studio.jpg");
+    background-position: center;
+  }
 }
 
 .page-head {
