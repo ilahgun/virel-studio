@@ -23,6 +23,7 @@ export async function generateMetadata({ params }) {
       title,
       description: a.metaDescription,
       url,
+      ...(a.gambar ? { images: [`${BASE_URL}${a.gambar}`] } : {}),
     },
   };
 }
@@ -39,7 +40,7 @@ export default async function ArtikelPage({ params }) {
       <p><a href="/blog">← Kembali ke Blog</a></p>
       <h1 style="color:var(--navy);font-size:2rem;line-height:1.3;margin:14px 0 8px;">${escapeHtml(a.judul)}</h1>
       <div class="meta" style="color:var(--muted);font-size:.9rem;margin-bottom:24px;">Diterbitkan ${escapeHtml(a.tanggal)} • oleh Tim Virel Studio</div>
-
+${a.gambar ? `      <img class="article-hero" src="${a.gambar}" alt="${escapeHtml(a.kataKunci)}">\n` : ''}
 ${isi}
     </div>
   </section>`;

@@ -13,8 +13,12 @@ export function urlHalaman(n) {
 // Kartu artikel dari content/artikel/index.json (terbaru di atas),
 // markup sama persis seperti kartu blog lama.
 function kartu(a) {
+  // Thumbnail featured image; alt wajib = kata kunci utama artikel.
+  const thumb = a.gambar
+    ? `<a href="/artikel/${a.slug}"><img class="blog-thumb" src="${a.gambar}" alt="${escapeHtml(a.kataKunci)}" loading="lazy"></a>\n          `
+    : '';
   return `<article class="card blog-card">
-          <div class="meta">${escapeHtml(a.tanggal)} • Tim Virel Studio • ${escapeHtml(a.kategori)}</div>
+          ${thumb}<div class="meta">${escapeHtml(a.tanggal)} • Tim Virel Studio • ${escapeHtml(a.kategori)}</div>
           <h3><a href="/artikel/${a.slug}">${escapeHtml(a.judul)}</a></h3>
           <p>${escapeHtml(a.ringkasan)}</p>
           <a class="btn btn-outline-dark" href="/artikel/${a.slug}">Baca Artikel</a>

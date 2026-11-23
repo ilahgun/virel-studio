@@ -174,6 +174,8 @@ table.compare tr:last-child td { border-bottom: none; }
 .article-body ul, .article-body ol { margin: 0 0 14px 22px; }
 .article-body li { margin-bottom: 6px; }
 .article-body li { margin-bottom: 6px; }
+.blog-thumb { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 10px; margin-bottom: 14px; }
+.article-hero { display: block; width: 100%; height: auto; border-radius: 12px; margin-bottom: 24px; }
 .blog-card h3 a { color: var(--navy); }
 .blog-card h3 a:hover { color: var(--accent); }
 .portfolio-card .tags { list-style: none; margin-top: 12px; }
