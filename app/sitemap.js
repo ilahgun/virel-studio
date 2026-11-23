@@ -1,5 +1,6 @@
 import { BASE_URL } from "./_lib/content";
 import { semuaArtikel } from "./_lib/artikel";
+import { jumlahHalaman, urlHalaman } from "./_lib/blog";
 
 export const dynamic = "force-static";
 
@@ -17,6 +18,12 @@ export default function sitemap() {
       changeFrequency: "daily",
       priority: 0.8,
     },
+    ...Array.from({ length: jumlahHalaman - 1 }, (_, i) => ({
+      url: BASE_URL + urlHalaman(i + 2),
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
+    })),
     {
       url: `${BASE_URL}/layanan`,
       lastModified: new Date(),

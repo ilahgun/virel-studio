@@ -97,6 +97,17 @@ p.section-sub { color: var(--muted); max-width: 760px; margin-bottom: 28px; }
 .btn-outline-dark { border-color: var(--accent); color: var(--accent); background: transparent; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
+/* ---------- Pagination blog ---------- */
+.pagination { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-top: 26px; }
+.pagination .page-num {
+  min-width: 46px; text-align: center; padding: 10px 12px;
+  border: 2px solid var(--line); border-radius: 10px;
+  background: var(--card); color: var(--ink); font-weight: 700; font-size: 0.98rem;
+}
+.pagination .page-num:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+.pagination .page-num.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pagination .is-disabled { opacity: 0.45; pointer-events: none; }
+
 /* ---------- Kartu ---------- */
 .grid { display: grid; gap: 20px; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
