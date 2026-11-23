@@ -72,6 +72,16 @@ a:hover { text-decoration: underline; }
 .hero h1 .hl { color: var(--accent-2); }
 .hero p.lead { font-size: 1.12rem; color: #d7e6f5; max-width: 720px; margin-bottom: 26px; }
 
+/* Hero beranda: teks + gambar dua kolom (menumpuk di layar kecil) */
+.hero-layout { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center; }
+.hero-visual img {
+  display: block; width: 100%; height: auto; aspect-ratio: 8 / 5;
+  border-radius: var(--radius); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+}
+
 .page-head {
   background: linear-gradient(135deg, var(--navy), var(--navy-2));
   color: #fff; padding: 48px 0 40px; margin-bottom: 40px;
