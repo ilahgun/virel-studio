@@ -3,15 +3,16 @@ import Header from './_components/Header';
 import Footer from './_components/Footer';
 import SiteScripts from './_components/SiteScripts';
 
-// Ikon & theme-color sama seperti <head> halaman lama:
-// favicon.ico, logo-mark.svg, favicon-512.png (apple touch), #0A1F44.
+// Ikon situs memakai maskot Virel Studio (karakter bertopi):
+// favicon.ico + PNG maskot di public/assets, theme-color #0A1F44.
 export const metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/assets/logo-mark.svg', type: 'image/svg+xml' },
+      { url: '/assets/maskot-ikon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/assets/maskot-ikon-512.png', type: 'image/png', sizes: '512x512' },
     ],
-    apple: '/assets/favicon-512.png',
+    apple: '/assets/maskot-ikon-512.png',
   },
 };
 
