@@ -334,3 +334,354 @@ table.compare tr:last-child td { border-bottom: none; }
   /* Tombol dalam baris melebar penuh agar rapi & mudah diketuk */
   .btn-row .btn { flex: 1 1 100%; }
 }
+
+/* ============================================================
+   PREVIEW REDESIGN "EDUNOVA" (24 Nov 2026, TIDAK LIVE)
+   Tema terang bersih: latar putih lavender, teks navy gelap,
+   aksen ungu violet #6C4CF1, kartu putih membulat + bayangan
+   lembut, judul display serif (Noto Serif Display lokal),
+   UI font Poppins (lokal), isi Noto Sans (lokal).
+   ============================================================ */
+
+@font-face { font-family: "Poppins"; src: url("/fonts/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("/fonts/Poppins-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Serif Display"; src: url("/fonts/NotoSerifDisplay-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Serif Display"; src: url("/fonts/NotoSerifDisplay-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Serif Display"; src: url("/fonts/NotoSerifDisplay-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Sans"; src: url("/fonts/NotoSans-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Sans"; src: url("/fonts/NotoSans-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Sans"; src: url("/fonts/NotoSans-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Noto Sans"; src: url("/fonts/NotoSans-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  --violet: #6c4cf1;
+  --violet-dark: #5639d8;
+  --violet-soft: #efeaff;
+  --lav: #f4f1fe;
+  --ink-2: #141433;
+  --muted-2: #5a5a78;
+  --line-2: #e9e6f7;
+}
+
+body {
+  font-family: "Noto Sans", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background: #fbfaff;
+  color: var(--ink-2);
+}
+
+h1, h2, h3, .btn, .brand { font-family: "Poppins", "Noto Sans", sans-serif; }
+a { color: var(--violet); }
+
+/* ---------- Navigasi terang ---------- */
+.site-nav { background: rgba(255, 255, 255, 0.96); border-bottom: 1px solid var(--line-2); box-shadow: 0 4px 24px rgba(90, 70, 200, 0.07); backdrop-filter: blur(8px); }
+.brand { color: var(--ink-2); }
+.brand small { color: var(--violet); }
+.brand .mark-img { border-radius: 0; }
+.nav-links a { color: #33335c; }
+.nav-links a:hover { background: var(--violet-soft); }
+.nav-links a.active { background: var(--violet-soft); color: var(--violet-dark); }
+.nav-links a.nav-cta { background: var(--violet); color: #fff; border-radius: 999px; padding: 10px 20px; box-shadow: 0 8px 20px rgba(108, 76, 241, 0.35); }
+.nav-links a.nav-cta:hover { background: var(--violet-dark); }
+.nav-toggle { border-color: var(--line-2); color: var(--ink-2); }
+@media (max-width: 900px) {
+  .nav-links { background: #fff; border-color: var(--line-2); }
+}
+
+/* ---------- Judul section lama menyesuaikan tema ---------- */
+h2.section-title { color: var(--ink-2); font-weight: 600; letter-spacing: -0.01em; }
+p.section-sub { color: var(--muted-2); }
+section.block.alt { background: var(--lav); }
+.card { border-color: var(--line-2); border-radius: 20px; box-shadow: 0 10px 30px rgba(90, 70, 200, 0.07); }
+.card h3 { color: var(--ink-2); }
+.card p { color: var(--muted-2); }
+.badge { background: var(--violet-soft); color: var(--violet-dark); }
+.step { border-color: var(--line-2); border-radius: 18px; box-shadow: 0 10px 30px rgba(90, 70, 200, 0.06); }
+.step::before { background: var(--violet); font-family: "Poppins", sans-serif; }
+.step h3 { color: var(--ink-2); }
+.step p { color: var(--muted-2); }
+.faq-item { border-color: var(--line-2); border-radius: 18px; box-shadow: 0 10px 30px rgba(90, 70, 200, 0.06); }
+.faq-item[open] { border-color: var(--violet); }
+.faq-item summary h3 { color: var(--ink-2); }
+.faq-item summary:hover h3 { color: var(--violet); }
+.faq-item summary::after { border-color: var(--violet); }
+.faq-item summary:focus-visible { outline-color: var(--violet); }
+.faq-answer p { color: var(--muted-2); }
+
+/* ---------- Hero ---------- */
+.edu-hero {
+  padding: 54px 0 46px;
+  background:
+    radial-gradient(560px 340px at 88% 6%, rgba(108, 76, 241, 0.10), transparent 65%),
+    radial-gradient(500px 320px at 4% 22%, rgba(34, 211, 238, 0.08), transparent 65%),
+    linear-gradient(180deg, #fbfaff 0%, #f6f3fe 100%);
+  overflow: hidden;
+}
+.edu-hero-grid { display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 44px; align-items: center; }
+.edu-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--line-2); color: var(--violet-dark);
+  font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.82rem;
+  padding: 8px 16px 8px 12px; border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(90, 70, 200, 0.08); margin-bottom: 22px;
+}
+.edu-kicker svg { width: 16px; height: 16px; color: var(--violet); }
+.edu-title {
+  font-family: "Noto Serif Display", Georgia, serif; font-weight: 700;
+  font-size: clamp(2.7rem, 5.2vw, 4.1rem); line-height: 1.07;
+  color: var(--ink-2); letter-spacing: -0.01em; margin-bottom: 20px;
+}
+.edu-title .acc { color: var(--violet); }
+.edu-sub { font-size: 1.06rem; line-height: 1.7; color: var(--muted-2); max-width: 520px; margin-bottom: 28px; }
+.edu-btn-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.edu-btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--violet); color: #fff; font-family: "Poppins", sans-serif; font-weight: 600;
+  font-size: 0.98rem; padding: 14px 26px; border-radius: 999px;
+  box-shadow: 0 12px 26px rgba(108, 76, 241, 0.38);
+}
+.edu-btn-primary:hover { background: var(--violet-dark); text-decoration: none; }
+.edu-btn-secondary {
+  display: inline-flex; align-items: center; gap: 12px;
+  color: var(--ink-2); font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.98rem;
+  padding: 8px 18px 8px 8px; border-radius: 999px; background: #fff; border: 1px solid var(--line-2);
+}
+.edu-btn-secondary:hover { text-decoration: none; border-color: var(--violet); }
+.edu-play {
+  width: 38px; height: 38px; border-radius: 50%; flex: none;
+  background: var(--violet-soft); color: var(--violet);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.edu-play svg { width: 16px; height: 16px; margin-left: 2px; }
+.edu-hero-note { margin-top: 20px; font-size: 0.92rem; color: var(--muted-2); display: flex; align-items: center; gap: 8px; }
+.edu-hero-note::before { content: "✓"; color: var(--violet); font-weight: 700; }
+
+.edu-hero-visual { position: relative; max-width: 520px; margin: 0 auto; width: 100%; }
+.edu-blob {
+  position: absolute; inset: 2% -2% 6% 6%;
+  background: linear-gradient(150deg, #e3dbff 0%, #efe9ff 55%, #e0f7fd 100%);
+  border-radius: 46% 54% 55% 45% / 46% 46% 54% 54%;
+}
+.edu-mascot { position: relative; display: block; width: 100%; height: auto; filter: drop-shadow(0 24px 32px rgba(20, 20, 80, 0.18)); }
+.edu-float {
+  position: absolute; display: flex; align-items: center; gap: 11px;
+  background: #fff; border-radius: 16px; padding: 11px 16px 11px 11px;
+  box-shadow: 0 18px 38px rgba(70, 50, 180, 0.18); z-index: 2;
+}
+.edu-float-text { display: flex; flex-direction: column; line-height: 1.3; }
+.edu-float-text small { font-size: 0.72rem; color: var(--muted-2); font-weight: 500; }
+.edu-float-text strong { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--ink-2); white-space: nowrap; }
+.edu-chip {
+  width: 40px; height: 40px; border-radius: 12px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.edu-chip svg { width: 21px; height: 21px; }
+.chip-violet { background: var(--violet-soft); color: var(--violet); }
+.chip-blue { background: #e3f0ff; color: #2f7fe0; }
+.chip-green { background: #e2f7e9; color: #1d9e57; }
+.chip-orange { background: #ffefdd; color: #e07f13; }
+.chip-pink { background: #ffe7f1; color: #e04b8a; }
+.fc-1 { left: -16px; top: 13%; }
+.fc-2 { right: -14px; top: 38%; }
+.fc-3 { left: 4%; bottom: 3%; }
+.edu-dots { display: inline-flex; gap: 4px; margin-left: 4px; }
+.edu-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); opacity: 0.25; }
+.edu-dots i:nth-child(-n+5) { opacity: 1; }
+
+/* ---------- Strip statistik ---------- */
+.edu-stats {
+  margin-top: 46px; background: #fff; border: 1px solid var(--line-2); border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(90, 70, 200, 0.10);
+  display: grid; grid-template-columns: repeat(4, 1fr); padding: 26px 10px;
+}
+.edu-stat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px; padding: 4px 10px; }
+.edu-stat + .edu-stat { border-left: 1px solid var(--line-2); }
+.edu-stat .edu-chip { margin-bottom: 8px; }
+.edu-stat strong { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 1.85rem; color: var(--ink-2); line-height: 1.1; }
+.edu-stat span:last-child { font-size: 0.88rem; color: var(--muted-2); }
+
+/* ---------- Kepala section ---------- */
+.edu-eyebrow {
+  font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.8rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); margin-bottom: 8px;
+}
+.edu-sec-title {
+  font-family: "Noto Serif Display", Georgia, serif; font-weight: 700;
+  font-size: clamp(1.7rem, 3vw, 2.15rem); line-height: 1.15; color: var(--ink-2);
+}
+.edu-sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+.edu-view-all { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.92rem; white-space: nowrap; }
+.edu-view-all:hover { text-decoration: none; color: var(--violet-dark); }
+
+/* ---------- Kartu layanan ---------- */
+.edu-services { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.edu-service {
+  background: #fff; border: 1px solid var(--line-2); border-radius: 20px; padding: 24px 20px;
+  box-shadow: 0 10px 28px rgba(90, 70, 200, 0.06);
+  display: flex; flex-direction: column; gap: 9px;
+}
+.edu-svc-icon { width: 54px; height: 54px; border-radius: 15px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+.edu-svc-icon svg { width: 27px; height: 27px; }
+.tint-violet { background: var(--violet-soft); color: var(--violet); }
+.tint-green { background: #e2f7e9; color: #1d9e57; }
+.tint-orange { background: #ffefdd; color: #e07f13; }
+.tint-blue { background: #e3f0ff; color: #2f7fe0; }
+.tint-pink { background: #ffe7f1; color: #e04b8a; }
+.edu-service h3 { font-size: 1.02rem; font-weight: 600; color: var(--ink-2); line-height: 1.35; }
+.edu-service p { font-size: 0.88rem; line-height: 1.6; color: var(--muted-2); }
+.edu-service a { margin-top: auto; padding-top: 6px; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.88rem; }
+.edu-service a:hover { text-decoration: none; color: var(--violet-dark); }
+
+/* ---------- Panel kenapa + kartu CTA ---------- */
+.edu-why { display: grid; grid-template-columns: 1.25fr 1fr; gap: 22px; }
+.edu-why-panel { background: var(--lav); border-radius: 24px; padding: 32px; }
+.edu-why-panel h3 { font-size: 1.12rem; font-weight: 600; color: var(--ink-2); margin-bottom: 18px; }
+.edu-checklist { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.edu-checklist li { position: relative; padding-left: 36px; font-size: 0.97rem; line-height: 1.55; color: #3c3c5e; }
+.edu-checklist li::before {
+  content: "✓"; position: absolute; left: 0; top: 1px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--violet); color: #fff; font-size: 0.78rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.edu-cta-card { background: #fff8ec; border: 1px solid #f5e3c2; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.edu-cta-card h3 { font-family: "Noto Serif Display", Georgia, serif; font-weight: 700; font-size: 1.45rem; color: var(--ink-2); }
+.edu-cta-card p { font-size: 0.95rem; line-height: 1.65; color: var(--muted-2); }
+.edu-cta-card .edu-btn-primary { margin-top: 4px; }
+.edu-cta-note { font-size: 0.84rem !important; }
+
+/* ---------- Banner CTA ungu ---------- */
+.edu-cta {
+  position: relative; overflow: hidden;
+  background: linear-gradient(115deg, #5b3df0 0%, #6c4cf1 52%, #8a63f6 100%);
+  border-radius: 28px; padding: 46px 50px; color: #fff;
+  display: flex; align-items: center; gap: 30px;
+  box-shadow: 0 24px 50px rgba(91, 61, 240, 0.35);
+}
+.edu-cta::after {
+  content: ""; position: absolute; right: -70px; top: -90px;
+  width: 340px; height: 340px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+}
+.edu-cta-text { position: relative; z-index: 2; max-width: 560px; }
+.edu-cta h2 { font-family: "Noto Serif Display", Georgia, serif; font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.15; margin-bottom: 12px; }
+.edu-cta p { color: rgba(255, 255, 255, 0.88); font-size: 1rem; line-height: 1.65; margin-bottom: 24px; }
+.edu-cta-row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.edu-btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: var(--violet-dark); font-family: "Poppins", sans-serif; font-weight: 600;
+  font-size: 0.97rem; padding: 13px 24px; border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(30, 10, 110, 0.3);
+}
+.edu-btn-white:hover { text-decoration: none; background: var(--violet-soft); }
+.edu-cta-link { color: #fff; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.95rem; }
+.edu-cta-link:hover { text-decoration: none; opacity: 0.85; }
+.edu-cta-mascot { position: relative; z-index: 1; width: 190px; height: auto; margin-left: auto; flex: none; filter: drop-shadow(0 16px 22px rgba(30, 10, 110, 0.35)); }
+
+/* ---------- Responsif preview ---------- */
+@media (max-width: 1020px) {
+  .edu-services { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .edu-hero { padding: 40px 0 38px; }
+  .edu-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .edu-hero-visual { max-width: 430px; }
+  .edu-stats { grid-template-columns: repeat(2, 1fr); gap: 18px 0; }
+  .edu-stat:nth-child(3) { border-left: none; }
+  .edu-why { grid-template-columns: 1fr; }
+  .edu-cta { padding: 38px 30px; }
+  .edu-cta-mascot { width: 130px; }
+}
+@media (max-width: 620px) {
+  .edu-services { grid-template-columns: 1fr; }
+  .edu-title { font-size: 2.45rem; }
+  .fc-1 { left: 0; top: 8%; }
+  .fc-2 { right: 0; top: 34%; }
+  .fc-3 { left: 2%; bottom: 1%; }
+  .edu-float { padding: 9px 13px 9px 9px; }
+  .edu-float-text strong { font-size: 0.82rem; }
+  .edu-cta { flex-direction: column; align-items: flex-start; }
+  .edu-cta-mascot { margin-left: 0; width: 110px; }
+  .edu-btn-row .edu-btn-primary, .edu-btn-row .edu-btn-secondary { flex: none; }
+}
+
+/* ============================================================
+   SERAGAM HALAMAN LAIN (redesign live 24 Nov 2026)
+   Layanan, Harga, Kontak, Tentang, Portofolio, Blog, dan
+   template artikel mengikuti gaya terang yang sama dengan
+   beranda: latar putih lavender, teks navy tinta, aksen ungu
+   #6C4CF1, kartu putih membulat + bayangan lembut, judul
+   display serif. Footer tetap navy gelap.
+   ============================================================ */
+
+/* ---------- Kepala halaman (pengganti pita navy lama) ---------- */
+.page-head {
+  background:
+    radial-gradient(520px 260px at 92% 0%, rgba(108, 76, 241, 0.10), transparent 65%),
+    linear-gradient(180deg, #f6f3fe 0%, #fbfaff 100%);
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--line-2);
+}
+.page-head h1 {
+  font-family: "Noto Serif Display", Georgia, serif;
+  font-weight: 700; letter-spacing: -0.01em; color: var(--ink-2);
+}
+.page-head p { color: var(--muted-2); }
+
+/* ---------- Tombol umum jadi pil ungu ---------- */
+.btn { border-radius: 999px; font-weight: 600; }
+.btn-accent { background: var(--violet); color: #fff; box-shadow: 0 10px 22px rgba(108, 76, 241, 0.28); }
+.btn-accent:hover { background: var(--violet-dark); }
+.btn-outline-dark { border-color: var(--violet); color: var(--violet-dark); }
+.btn-outline-dark:hover { background: var(--violet-soft); }
+.btn-outline { border-color: var(--line-2); color: var(--ink-2); background: #fff; }
+.btn-outline:hover { border-color: var(--violet); }
+
+/* ---------- Kartu harga ---------- */
+.price-card .price { color: var(--violet-dark); font-family: "Poppins", sans-serif; }
+.price-card ul li::before { color: var(--violet); }
+.badge-promo { background: #fde047; color: #5c4300; }
+
+/* ---------- Tabel perbandingan ---------- */
+table.compare { border: 1px solid var(--line-2); border-radius: 20px; box-shadow: 0 10px 30px rgba(90, 70, 200, 0.06); }
+table.compare th { background: var(--violet); }
+table.compare td { border-bottom-color: var(--line-2); }
+
+/* ---------- Blog: kartu + pagination ---------- */
+.blog-card .meta { color: var(--muted-2); font-size: 0.88rem; }
+.blog-thumb { border-radius: 14px; }
+.blog-card h3 { font-weight: 600; }
+.blog-card h3 a { color: var(--ink-2); }
+.blog-card h3 a:hover { color: var(--violet); }
+.pagination .page-num { border-color: var(--line-2); border-radius: 999px; color: var(--ink-2); }
+.pagination .page-num:hover { border-color: var(--violet); color: var(--violet-dark); }
+.pagination .page-num.active { background: var(--violet); border-color: var(--violet); color: #fff; }
+
+/* ---------- Artikel ---------- */
+.article-body { color: #2b2b47; }
+.article-body h2 {
+  font-family: "Noto Serif Display", Georgia, serif;
+  font-weight: 700; color: var(--ink-2); letter-spacing: -0.01em;
+}
+.article-body h3 { color: var(--ink-2); font-weight: 600; }
+.article-hero { border-radius: 20px; box-shadow: 0 16px 40px rgba(90, 70, 200, 0.12); }
+
+/* ---------- Sidebar artikel ---------- */
+.side-block { border-color: var(--line-2); border-radius: 20px; box-shadow: 0 10px 30px rgba(90, 70, 200, 0.07); }
+.side-title { color: var(--ink-2); border-bottom: 2px solid var(--violet); font-weight: 600; }
+.side-thumb { border-radius: 10px; }
+.side-item-title { color: var(--ink-2); }
+.side-item a:hover .side-item-title { color: var(--violet); }
+.side-item-date { color: var(--muted-2); }
+
+/* ---------- Portofolio & tim ---------- */
+.portfolio-card .portfolio-img { border-color: var(--line-2); border-radius: 14px; }
+.portfolio-card .tags li { color: var(--muted-2); }
+.portfolio-card .tags li::before { color: var(--violet); }
+.team-card .avatar { background: linear-gradient(135deg, var(--violet), #8a63f6); font-family: "Poppins", sans-serif; }
+.team-card .role { color: var(--violet); }
+
+/* ---------- Form kontak ---------- */
+.contact-form label { color: var(--ink-2); }
+.contact-form input, .contact-form select, .contact-form textarea { border-color: var(--line-2); border-radius: 12px; color: var(--ink-2); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: 2px solid var(--violet); border-color: var(--violet); }
+.form-note { color: var(--muted-2); }

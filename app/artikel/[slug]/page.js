@@ -38,8 +38,8 @@ export default async function ArtikelPage({ params }) {
   // Isi artikel kini duduk di kolom kiri layout dua kolom;
   // kolom kanan diisi sidebar artikel terkait dan terbaru.
   const body = `      <p><a href="/blog">← Kembali ke Blog</a></p>
-      <h1 style="color:var(--navy);font-size:2rem;line-height:1.3;margin:14px 0 8px;">${escapeHtml(a.judul)}</h1>
-      <div class="meta" style="color:var(--muted);font-size:.9rem;margin-bottom:24px;">Diterbitkan ${escapeHtml(a.tanggal)} • oleh Tim Virel Studio</div>
+      <h1 style="font-family:'Noto Serif Display',Georgia,serif;font-weight:700;color:var(--ink-2);font-size:2.1rem;line-height:1.25;margin:14px 0 8px;">${escapeHtml(a.judul)}</h1>
+      <div class="meta" style="color:var(--muted-2);font-size:.9rem;margin-bottom:24px;">Diterbitkan ${escapeHtml(a.tanggal)} • oleh Tim Virel Studio</div>
 ${a.gambar ? `      <img class="article-hero" src="${a.gambar}" alt="${escapeHtml(a.kataKunci)}">\n` : ''}
 ${isi}`;
   return (

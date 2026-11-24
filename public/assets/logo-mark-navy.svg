@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Markah Virel Studio — Satu Warna Navy</title>
+  <desc id="desc">Markah satu warna navy: squircle solid dengan huruf V transparan menembus latar dan segitiga play sewarna markah di dalam V, mengikuti struktur master.</desc>
+  <!-- Path gabungan fill-rule="evenodd" dari tiga bentuk master: squircle - V + segitiga play.
+       Huruf V benar-benar transparan (ruang negatif), bukan digambar dengan warna latar. -->
+  <path fill="#0A1F44" fill-rule="evenodd" d="M62 8h116a54 54 0 0 1 54 54v116a54 54 0 0 1-54 54H62a54 54 0 0 1-54-54V62a54 54 0 0 1 54-54Z M61 55h37l22 61 22-61h37l-49 130q-10 11-20 0L61 55Z M113 148l24 12-24 12Z"/>
+</svg>
