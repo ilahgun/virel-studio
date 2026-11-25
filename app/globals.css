@@ -63,33 +63,7 @@ a:hover { text-decoration: underline; }
   .nav-links a.nav-cta { margin: 6px 0 0; justify-content: center; }
 }
 
-/* ---------- Hero & section ---------- */
-.hero {
-  background-color: var(--navy);
-  background-image:
-    linear-gradient(100deg, rgba(10, 31, 68, 0.93) 0%, rgba(10, 31, 68, 0.84) 48%, rgba(10, 31, 68, 0.6) 100%),
-    url("/hero-bg-virel-studio.jpg");
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-  color: #fff; padding: 72px 0 64px;
-}
-.hero h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 14px; }
-.hero h1 .hl { color: var(--accent-2); }
-.hero p.lead { font-size: 1.12rem; color: #d7e6f5; max-width: 720px; margin-bottom: 26px; }
-
-/* Hero beranda: background gambar full-bleed, teks satu kolom di sisi kiri.
-   Overlay navy pekat dijamin agar tulisan selalu terbaca jelas. */
-.hero-text { max-width: 660px; }
-@media (max-width: 900px) {
-  .hero {
-    background-image:
-      linear-gradient(rgba(10, 31, 68, 0.94), rgba(10, 31, 68, 0.94)),
-      url("/hero-bg-virel-studio.jpg");
-    background-position: center;
-  }
-}
-
+/* ---------- Section ---------- */
 .page-head {
   background: linear-gradient(135deg, var(--navy), var(--navy-2));
   color: #fff; padding: 48px 0 40px; margin-bottom: 40px;
@@ -316,9 +290,6 @@ table.compare tr:last-child td { border-bottom: none; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 
   /* Tipografi & ruang lebih ramping di layar kecil */
-  .hero { padding: 48px 0 40px; }
-  .hero h1 { font-size: 1.75rem; }
-  .hero p.lead { font-size: 1.02rem; margin-bottom: 22px; }
   .page-head { padding: 36px 0 30px; margin-bottom: 28px; }
   .page-head h1 { font-size: 1.5rem; }
   section.block { padding: 32px 0; }
