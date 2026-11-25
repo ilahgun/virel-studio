@@ -23,7 +23,19 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
+      <head>
+        {/* Penanda JS aktif sebelum paint: animasi masuk & scroll-reveal di
+            globals.css hanya berlaku di bawah html.js, jadi tanpa JS semua
+            konten tetap terlihat. Pengaman rv-off: bila skrip utama gagal
+            jalan dalam 3,5 detik, semua elemen reveal dipaksa tampil. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js');window.__rv=setTimeout(function(){document.documentElement.classList.add('rv-off')},3500);",
+          }}
+        />
+      </head>
       <body>
         <Header />
         {children}
