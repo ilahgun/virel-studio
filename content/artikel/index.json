@@ -1,5 +1,16 @@
 [
   {
+    "slug": "maintenance-website",
+    "gambar": "/artikel/maintenance-website.jpg",
+    "judul": "Maintenance Website: Apa yang Terjadi Kalau Website Tidak Pernah Dirawat?",
+    "tanggal": "27 November 2026",
+    "tanggalISO": "2026-11-27",
+    "kategori": "Panduan",
+    "kataKunci": "maintenance website",
+    "metaDescription": "Maintenance website itu wajib, bukan pilihan. Simak apa yang terjadi kalau website tidak pernah dirawat, dari keamanan sampai peringkat Google.",
+    "ringkasan": "Website yang tidak pernah dirawat pelan-pelan melambat, rawan dibobol, dan turun di Google. Ini yang terjadi dan cara mencegahnya dengan perawatan rutin."
+  },
+  {
     "slug": "sistem-booking-online-salon-bengkel-studio",
     "gambar": "/artikel/sistem-booking-online-salon-bengkel-studio.jpg",
     "judul": "Sistem Booking Online untuk Salon, Bengkel, dan Studio: Cara Kerja dan Manfaatnya",
