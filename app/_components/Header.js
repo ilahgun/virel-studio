@@ -18,7 +18,6 @@ export default function Header() {
           <a href="/layanan" data-page="layanan">Layanan</a>
           <a href="/harga" data-page="harga">Harga</a>
           <a href="/portofolio" data-page="portofolio">Portofolio</a>
-          <a href="/blog" data-page="blog">Blog</a>
           <a href="/tentang" data-page="tentang">Tentang</a>
           <a href="/kontak" data-page="kontak">Kontak</a>
           <a className="nav-cta" href="/kontak">
